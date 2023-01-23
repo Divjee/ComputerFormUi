@@ -1,0 +1,39 @@
+<div  class="form-froup mb-10 ">
+
+
+    <label class="col-sm-2 col-form-label" *ngIf="id != 0">Id</label>
+    <div class="col-sm-10 row mt-9"*ngIf="id !=0">
+        <label  class="form-control"  [(ngModel)] ="id">{{id}}</label>
+    </div>
+    <label  class="col-sm-2 col-form-label">Tips</label>
+    <div  class="col-sm-10 row mt-9" (click)="refreshPartList()">
+        <select class="form-control" [(ngModel)]="type">
+            <option>{{type}}</option>
+            <option *ngFor="let partName of ComputerPartList">{{partName}}</option>
+        </select>
+        <!-- <input type="text" class="form-control" [(ngModel)] ="type"
+        placeholder="Ievadīt detaļas tipu"> -->
+    </div>
+    <label  class="col-sm-2 col-form-label">Firma</label>
+    <div  class="col-sm-10 row mt-9">
+        <input type="text" class="form-control" [(ngModel)] ="brand"
+        placeholder="Ievadīt detaļas firmu">
+    </div>
+    <label class="col-sm-2 col-form-label">Modelis</label>
+    <div class="col-sm-10 row mt-9">
+        <input type="text" class="form-control" [(ngModel)] ="model"
+        placeholder="Ievadīt detaļas modeli">
+    </div>
+    <label class="col-sm-2 col-form-label">Cena</label>
+    <div class="col-sm-10 row mt-9">
+        <input type="text" class="form-control" [(ngModel)] ="price"
+        placeholder="Ievadīt detaļas cenu">
+    </div>
+</div>
+
+<button (click)="addHardware()"   class="btn btn-primary mt-3" *ngIf="part.id==0">
+    Pievienot
+</button>
+<button (click)="updatePart()"   class="btn btn-primary mt-3" *ngIf="part.id!=0">
+    Rediģēt
+</button>
